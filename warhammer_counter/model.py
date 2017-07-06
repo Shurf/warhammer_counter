@@ -7,7 +7,7 @@ dice_side_count = 6
 
 class Model:
     def __init__(self, name:str, ballistic:int, weapons:typing.List[Weapon], base_cost:int):
-        self.ballistic = ballistic
+        self.ballistic_value = ballistic
         self.name = name
         self.weapons = weapons
         self.base_cost = base_cost
@@ -16,6 +16,9 @@ class Model:
         total_cost = self.base_cost
         total_cost += sum([x.point_cost() for x in self.weapons])
         return float(total_cost)/100
+
+    def ap_modifier(self):
+        return 0
 
     def damage_probability(self, strength: int, toughness: int) -> float:
         if strength == 0:
@@ -32,7 +35,7 @@ class Model:
             return float(2)/3
 
     def unsaved_wound_probability(self, ap: int, save:int, invulnerable:int) -> float:
-        total_save = save + ap
+        total_save = save + ap + self.ap_modifier()
         if invulnerable != 0 and invulnerable < total_save:
             total_save = invulnerable
 
@@ -40,26 +43,28 @@ class Model:
             return 1.0
         return float(total_save - 1)/dice_side_count
 
-    def hit_probability(self, weapon):
+    def hit_probability(self, weapon, overwatch:bool):
         if weapon.is_autohit():
             return 1.0
-        return float(dice_side_count + 1 - self.ballistic)/dice_side_count
+        if overwatch:
+            return float(1)/6
+        return float(dice_side_count + 1 - self.ballistic_value)/dice_side_count
 
     def divider(self):
         #return 1
         return self.hundreds_of_points()
 
-    def wound_count(self, target: Target, range_value:int) -> float:
+    def wound_count(self, target: Target, range_value:int, overwatch:bool) -> float:
 
         result = 0.0
         for weapon in self.weapons:
             wound_probability = self.damage_probability(weapon.strength(range_value), target.toughness())
             unsaved_probability = self.unsaved_wound_probability(weapon.ap(range_value), target.save(), target.invulnerable())
             expected_dmg = min(weapon.damage(range_value), target.wounds())
-            hit_probability = self.hit_probability(weapon)
+            hit_probability = self.hit_probability(weapon, overwatch)
             result += wound_probability*unsaved_probability*expected_dmg*weapon.shots(range_value)*hit_probability
         return result
 
-    def divided_result(self, target: Target, range_value:int) -> float:
-        float_result = self.wound_count(target, range_value)/self.divider()
+    def divided_result(self, target: Target, range_value:int, overwatch:bool) -> float:
+        float_result = self.wound_count(target, range_value, overwatch)/self.divider()
         return float(int(float_result*100))/100

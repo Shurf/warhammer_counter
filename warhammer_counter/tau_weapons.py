@@ -40,6 +40,25 @@ class Plasma(Weapon):
                             Profile(min_range=12, max_range=24, strength=6, shots=1, ap=3, damage=1)
                          ])
 
+class PulseRifle(Weapon):
+    def __init__(self):
+        super().__init__('plasma rifle',
+                         0,
+                         [
+                            Profile(min_range=0, max_range=15, strength=5, shots=2, ap=0, damage=1),
+                            Profile(min_range=15, max_range=30, strength=5, shots=1, ap=0, damage=1)
+                         ])
+
+
+class FusionBlaster(Weapon):
+    def __init__(self):
+        super().__init__('fusion blaster',
+                         21,
+                         [
+                            Profile(min_range=0, max_range=9, strength=8, shots=1, ap=4, damage=4.47),
+                            Profile(min_range=9, max_range=18, strength=8, shots=1, ap=4, damage=3.5)
+                         ])
+
 
 class Flamer(Weapon):
     def is_autohit(self):
@@ -87,5 +106,12 @@ class PulseDriverCannon(Weapon):
         super().__init__('pulse driver cannon',
                          97,
                          [Profile(min_range=0, max_range=72, strength=10, shots=2, ap=3, damage=3.5)])
+
+
+class MissilePod(Weapon):
+    def __init__(self):
+        super().__init__('missile pod',
+                         24,
+                         [Profile(min_range=0, max_range=36, strength=7, shots=2, ap=1, damage=2)])
 
 

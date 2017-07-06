@@ -80,15 +80,54 @@ class StormsurgePulseDriverAnchored(StormsurgeAnchored):
     def __init__(self):
         super().__init__('pulse driver', [PulseDriverCannon(), Flamer(), Flamer()])
 
+class FireWarrior(Model):
+    def __init__(self):
+        super().__init__('Fire Warrior (rifle)', 4, [PulseRifle()], 8)
+
+class CommanderFlamerTwoFusion(Model):
+    def __init__(self):
+        super().__init__('Commander (flamer, 2xfusion)', 2, [FusionBlaster(), FusionBlaster(), Flamer()], 76)
+
+class CrisisSuit(Model):
+
+    def cost(self):
+        return 42
+
+    def name(self):
+        return 'Crisis suit '
+
+    def __init__(self, name_addon:str, weapons):
+        super().__init__(self.name() + name_addon, 4, weapons, self.cost())
+
+
+class CrisisSuitThreeMissilePods(CrisisSuit):
+    def __init__(self):
+        super().__init__("3 mp", [MissilePod(), MissilePod(), MissilePod()])
+
+class CrisisSuitTwoMissilePodsATS(CrisisSuit):
+
+    def ap_modifier(self):
+        return 1
+
+    def cost(self):
+        return super().cost() + 8
+
+    def __init__(self):
+        super().__init__("2 mp ATS", [MissilePod(), MissilePod()])
+
 tau_models_list = [
-        Broadside(),
-        RiptideIaNovaPlasma(),
-        RiptideBurstNovaPlasma(),
-        RiptideIaNovaSms(),
-        RiptideBurstNovaSms(),
-        StormsurgeBlastCannonShort(),
-        StormsurgeBlastCannonMedium(),
-        StormsurgeBlastCannonLong(),
-        StormsurgePulseDriver(),
-        StormsurgePulseDriverAnchored()
-    ]
+    FireWarrior(),
+    CommanderFlamerTwoFusion(),
+    CrisisSuitThreeMissilePods(),
+    CrisisSuitTwoMissilePodsATS(),
+    Broadside(),
+    RiptideIaNovaPlasma(),
+    RiptideBurstNovaPlasma(),
+    RiptideIaNovaSms(),
+    RiptideBurstNovaSms(),
+    StormsurgeBlastCannonShort(),
+    StormsurgeBlastCannonMedium(),
+    StormsurgeBlastCannonLong(),
+    StormsurgePulseDriver(),
+    StormsurgePulseDriverAnchored()
+]
