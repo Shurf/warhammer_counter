@@ -59,3 +59,7 @@ class Model:
             hit_probability = self.hit_probability(weapon)
             result += wound_probability*unsaved_probability*expected_dmg*weapon.shots(range_value)*hit_probability
         return result
+
+    def divided_result(self, target: Target, range_value:int) -> float:
+        float_result = self.wound_count(target, range_value)/self.divider()
+        return float(int(float_result*100))/100
