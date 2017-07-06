@@ -31,10 +31,14 @@ class Model:
         if strength > toughness:
             return float(2)/3
 
-    def unsaved_wound_probability(self, ap: int, save:int) -> float:
-        if save + ap > dice_side_count:
+    def unsaved_wound_probability(self, ap: int, save:int, invulnerable:int) -> float:
+        total_save = save + ap
+        if invulnerable != 0 and invulnerable < total_save:
+            total_save = invulnerable
+
+        if total_save > dice_side_count:
             return 1.0
-        return float(save + ap - 1)/dice_side_count
+        return float(total_save - 1)/dice_side_count
 
     def hit_probability(self, weapon):
         if weapon.is_autohit():
@@ -50,7 +54,7 @@ class Model:
         result = 0.0
         for weapon in self.weapons:
             wound_probability = self.damage_probability(weapon.strength(range_value), target.toughness())
-            unsaved_probability = self.unsaved_wound_probability(weapon.ap(range_value), target.save())
+            unsaved_probability = self.unsaved_wound_probability(weapon.ap(range_value), target.save(), target.invulnerable())
             expected_dmg = min(weapon.damage(range_value), target.wounds())
             hit_probability = self.hit_probability(weapon)
             result += wound_probability*unsaved_probability*expected_dmg*weapon.shots(range_value)*hit_probability
