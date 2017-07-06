@@ -2,7 +2,7 @@ __author__ = 'schrecknetuser'
 
 import typing
 from weapon import *
-from target import *
+from targets import *
 dice_side_count = 6
 
 class Model:

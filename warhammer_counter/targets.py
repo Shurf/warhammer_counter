@@ -70,3 +70,16 @@ class Rhino(Target):
 class LandRaider(Target):
     def __init__(self):
         super().__init__(name='land raider', toughness=8, save=2, wounds=16, invulnerable=0)
+
+default_targets = [
+        Guardsman(),
+        Ork(),
+        Marine(),
+        Terminator(),
+        Bike(),
+        Piranha(),
+        Harpy(),
+        Manticore(),
+        Rhino(),
+        LandRaider()
+    ]

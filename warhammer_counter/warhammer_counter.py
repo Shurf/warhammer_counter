@@ -1,15 +1,12 @@
 __author__ = 'schrecknetuser'
 
-from target import *
-from tau_models import *
+import targets
+import tau_models
 
 def make_bgcolor_depending_on_average(ordered_values, value):
     min_value = min(ordered_values)
     max_value = max(ordered_values)
     average = (min_value + max_value) / 2
-    red_component = 0
-    green_component = 0
-    blue_component = 0
 
     if value >= average:
         green_component = 255
@@ -53,31 +50,8 @@ def make_bgcolor(ordered_values, value):
 
 def main():
 
-    targets_list = [
-        Guardsman(),
-        Ork(),
-        Marine(),
-        Terminator(),
-        Bike(),
-        Piranha(),
-        Harpy(),
-        Manticore(),
-        Rhino(),
-        LandRaider()
-    ]
-
-    models = [
-        Broadside(),
-        RiptideIaNovaPlasma(),
-        RiptideBurstNovaPlasma(),
-        RiptideIaNovaSms(),
-        RiptideBurstNovaSms(),
-        StormsurgeBlastCannonShort(),
-        StormsurgeBlastCannonMedium(),
-        StormsurgeBlastCannonLong(),
-        StormsurgePulseDriver(),
-        StormsurgePulseDriverAnchored()
-    ]
+    targets_list = targets.default_targets
+    models = tau_models.tau_models_list
 
 
 

@@ -79,3 +79,16 @@ class StormsurgePulseDriver(Stormsurge):
 class StormsurgePulseDriverAnchored(StormsurgeAnchored):
     def __init__(self):
         super().__init__('pulse driver', [PulseDriverCannon(), Flamer(), Flamer()])
+
+tau_models_list = [
+        Broadside(),
+        RiptideIaNovaPlasma(),
+        RiptideBurstNovaPlasma(),
+        RiptideIaNovaSms(),
+        RiptideBurstNovaSms(),
+        StormsurgeBlastCannonShort(),
+        StormsurgeBlastCannonMedium(),
+        StormsurgeBlastCannonLong(),
+        StormsurgePulseDriver(),
+        StormsurgePulseDriverAnchored()
+    ]
