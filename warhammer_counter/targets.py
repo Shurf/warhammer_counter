@@ -71,6 +71,10 @@ class LandRaider(Target):
     def __init__(self):
         super().__init__(name='land raider', toughness=8, save=2, wounds=16, invulnerable=0)
 
+class ImperialKnight(Target):
+    def __init__(self):
+        super().__init__(name='IKnight', toughness=8, save=3, wounds=24, invulnerable=5)
+
 default_targets = [
         Guardsman(),
         Ork(),
@@ -81,5 +85,6 @@ default_targets = [
         Harpy(),
         Manticore(),
         Rhino(),
-        LandRaider()
+        LandRaider(),
+        ImperialKnight()
     ]
