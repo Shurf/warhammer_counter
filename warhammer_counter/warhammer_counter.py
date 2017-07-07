@@ -69,7 +69,7 @@ def main():
 
 
 
-    distances = [Distance(1, True), Distance(8), Distance(15), Distance(20), Distance(30), Distance(36), Distance(72)]
+    distances = [Distance(1, True), Distance(8), Distance(12), Distance(15), Distance(20), Distance(30), Distance(36), Distance(72)]
 
     with open('output.html', 'w') as f:
         f.write('<html>')

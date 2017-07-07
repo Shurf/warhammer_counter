@@ -99,6 +99,11 @@ class CommanderFlamerTwoFusion(Commander):
         super().__init__('(flamer, 2xfusion)', [FusionBlaster(), FusionBlaster(), Flamer()])
 
 
+class CommanderFlamerTwoPlasmas(Commander):
+    def __init__(self):
+        super().__init__('(flamer, 2xplasma)', [Plasma(), Plasma(), Flamer()])
+
+
 class CommanderThreeMissilePods(Commander):
     def __init__(self):
         super().__init__("(3 mp)", [MissilePod(), MissilePod(), MissilePod()])
@@ -145,6 +150,7 @@ class CrisisSuitTwoMissilePodsATS(CrisisSuit):
 tau_models_list = [
     FireWarrior(),
     CommanderFlamerTwoFusion(),
+    CommanderFlamerTwoPlasmas(),
     CommanderThreeMissilePods(),
     CommanderTwoMissilePodsATS(),
     CrisisSuitThreeMissilePods(),
