@@ -84,9 +84,36 @@ class FireWarrior(Model):
     def __init__(self):
         super().__init__('Fire Warrior (rifle)', 4, [PulseRifle()], 8)
 
-class CommanderFlamerTwoFusion(Model):
+
+class Commander(Model):
+
+    def cost(self):
+        return 76
+
+    def __init__(self, name_addon:str, weapons):
+        super().__init__('Commander ' + name_addon, 2, weapons, 76)
+
+
+class CommanderFlamerTwoFusion(Commander):
     def __init__(self):
-        super().__init__('Commander (flamer, 2xfusion)', 2, [FusionBlaster(), FusionBlaster(), Flamer()], 76)
+        super().__init__('(flamer, 2xfusion)', [FusionBlaster(), FusionBlaster(), Flamer()])
+
+
+class CommanderThreeMissilePods(Commander):
+    def __init__(self):
+        super().__init__("(3 mp)", [MissilePod(), MissilePod(), MissilePod()])
+
+
+class CommanderTwoMissilePodsATS(Commander):
+
+    def ap_modifier(self):
+        return 1
+
+    def cost(self):
+        return super().cost() + 8
+
+    def __init__(self):
+        super().__init__("(2 mp ATS)", [MissilePod(), MissilePod()])
 
 class CrisisSuit(Model):
 
@@ -118,6 +145,8 @@ class CrisisSuitTwoMissilePodsATS(CrisisSuit):
 tau_models_list = [
     FireWarrior(),
     CommanderFlamerTwoFusion(),
+    CommanderThreeMissilePods(),
+    CommanderTwoMissilePodsATS(),
     CrisisSuitThreeMissilePods(),
     CrisisSuitTwoMissilePodsATS(),
     Broadside(),
