@@ -3,6 +3,7 @@ from ig_weapons import *
 
 guardsman = Model(name='guardsman', ballistic=4, weapons=[Lasgun()], base_cost=4)
 hvy_wpn_team_lascannon = Model(name='HWT (lascannon)', ballistic=4, weapons=[Lascannon()], base_cost=4)
+hvy_wpn_team_autocannon = Model(name='HWT (autocannon)', ballistic=4, weapons=[Autocannon()], base_cost=4)
 armoured_sentinel_autocannon = Model(name='Arm. Sentinel (AC)', ballistic=4, weapons=[Autocannon()], base_cost=40)
 taurox_autocannon = Model(name='Taurox', ballistic=4, weapons=[Autocannon(), Autocannon()], base_cost=55)
 basilisk = Model(name='Basilisk', ballistic=4, weapons=[EarthshakerCannon(), HeavyBolter()], base_cost=100)
@@ -69,6 +70,7 @@ stormlord_sponsons = Model(name='stormlord sponsons', ballistic=4,
 ig_models_list = [
     guardsman,
     hvy_wpn_team_lascannon,
+    hvy_wpn_team_autocannon,
     armoured_sentinel_autocannon,
     taurox_autocannon,
     basilisk,
@@ -137,7 +139,7 @@ ig_baneblade_list = [
 ig_filtered_models_list = [
     guardsman,
     hvy_wpn_team_lascannon,
-    armoured_sentinel_autocannon,
+    hvy_wpn_team_autocannon,
     taurox_autocannon,
     basilisk,
     manticore,
