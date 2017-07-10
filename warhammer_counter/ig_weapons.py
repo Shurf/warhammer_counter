@@ -150,6 +150,13 @@ class PlasmaGun(Weapon):
                           Profile(min_range=12, max_range=24, strength=7, shots=1, ap=3, damage=1)])
 
 
+class PlasmaPistolOC(Weapon):
+    def __init__(self):
+        super().__init__('plasma pistol (oc)',
+                         5,
+                         [Profile(min_range=0, max_range=12, strength=7, shots=1, ap=3, damage=2)])
+
+
 class PlasmaGunOC(Weapon):
     def __init__(self):
         super().__init__('plasma gun oc',
@@ -259,6 +266,9 @@ class VulcanMegaBolter(Weapon):
 
 
 class WyvernStormshardMortar(Weapon):
+    def is_reroll_wound(self):
+        return True
+
     def __init__(self):
         super().__init__('wyvern stormshard mortar',
                          0,

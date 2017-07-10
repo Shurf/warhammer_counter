@@ -1,5 +1,6 @@
 __author__ = 'schrecknetuser'
 import typing
+from targets import Target
 
 class Profile:
     def __init__(self, min_range:int, max_range:int, strength: int, ap:int, shots:float, damage:float):
@@ -15,6 +16,31 @@ class Weapon:
 
     def is_autohit(self):
         return False
+
+    def is_reroll_wound(self):
+        return False
+
+    def wound_probability(self, range_value: int, target: Target):
+        strength = self.strength(range_value)
+        toughness = target.toughness()
+        value = 0
+        if strength == 0:
+            return 0
+        if strength * 2 <= toughness:
+            value = float(1) / 6
+        if strength < toughness:
+            value = float(2) / 6
+        if strength == toughness:
+            value = float(1) / 2
+        if strength >= toughness * 2:
+            value = float(5) / 6
+        if strength > toughness:
+            value = float(2) / 3
+
+        if self.is_reroll_wound():
+            value += (1 - value) * value
+
+        return value
 
     def __init__(self, name:str, point_cost:int, profiles:typing.List[Profile]):
         self.name = name

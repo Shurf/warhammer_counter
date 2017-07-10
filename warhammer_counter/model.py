@@ -20,19 +20,8 @@ class Model:
     def ap_modifier(self):
         return 0
 
-    def damage_probability(self, strength: int, toughness: int) -> float:
-        if strength == 0:
-            return 0
-        if strength*2 <= toughness:
-            return float(1)/6
-        if strength < toughness:
-            return float(2)/6
-        if strength == toughness:
-            return float(1)/2
-        if strength >= toughness*2:
-            return float(5)/6
-        if strength > toughness:
-            return float(2)/3
+    def damage_probability(self, weapon: Weapon, range_value: int, target: Target) -> float:
+        return weapon.wound_probability(range_value=range_value, target=target)
 
     def unsaved_wound_probability(self, ap: int, save:int, invulnerable:int) -> float:
         total_save = save + ap + self.ap_modifier()
@@ -58,7 +47,7 @@ class Model:
 
         result = 0.0
         for weapon in self.weapons:
-            wound_probability = self.damage_probability(weapon.strength(range_value), target.toughness())
+            wound_probability = self.damage_probability(weapon, range_value, target)
             unsaved_probability = self.unsaved_wound_probability(weapon.ap(range_value), target.save(), target.invulnerable())
             expected_dmg = min(weapon.damage(range_value), target.wounds())
             hit_probability = self.hit_probability(weapon, overwatch)

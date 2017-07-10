@@ -2,6 +2,16 @@ from model import *
 from ig_weapons import *
 
 guardsman = Model(name='guardsman', ballistic=4, weapons=[Lasgun()], base_cost=4)
+las_plas_inf_squad_oc = Model(name='las plas inf squad (oc)', ballistic=4, weapons=[Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), PlasmaGunOC(), PlasmaPistolOC(), Lascannon()], base_cost=40)
+scion = Model(name='scion (hs lasgun)', ballistic=3, weapons=[HotshotLasgun()], base_cost=10)
+scion_melta = Model(name='scion (melta)', ballistic=3, weapons=[MeltaGun()], base_cost=10)
+scion_melta_inc_tempestor = Model(name='scion (melta) w/tempestor', ballistic=3, weapons=[MeltaGun()], base_cost=20)
+scion_plasma = Model(name='scion (plasma)', ballistic=3, weapons=[PlasmaGun()], base_cost=10)
+scion_plasma_oc = Model(name='scion (plasma (oc))', ballistic=3, weapons=[PlasmaGunOC()], base_cost=10)
+scion_plasma_oc_inc_tempestor = Model(name='scion (plasma (oc)) w/tempestor', ballistic=3, weapons=[PlasmaGunOC()], base_cost=20)
+scion_troop_plasma = Model(name='scion troop (plasma (oc))', ballistic=3, weapons=[PlasmaGunOC(), PlasmaGunOC(), PlasmaPistolOC(), HotshotLasgun(), HotshotLasgun()], base_cost=50)
+scion_troop_plasma_no_pistol = Model(name='scion troop (plasma (oc) no pistol)', ballistic=3, weapons=[PlasmaGunOC(), PlasmaGunOC(), HotshotLasgun(), HotshotLasgun(), HotshotLasgun()], base_cost=50)
+scion_troop_melta = Model(name='scion troop (melta)', ballistic=3, weapons=[MeltaGun(), MeltaGun(), HotshotLasgun(), HotshotLasgun(), HotshotLasgun()], base_cost=50)
 hvy_wpn_team_lascannon = Model(name='HWT (lascannon)', ballistic=4, weapons=[Lascannon()], base_cost=4)
 hvy_wpn_team_autocannon = Model(name='HWT (autocannon)', ballistic=4, weapons=[Autocannon()], base_cost=4)
 armoured_sentinel_autocannon = Model(name='Arm. Sentinel (AC)', ballistic=4, weapons=[Autocannon()], base_cost=40)
@@ -69,11 +79,21 @@ stormlord_sponsons = Model(name='stormlord sponsons', ballistic=4,
 
 ig_models_list = [
     guardsman,
+    las_plas_inf_squad_oc,
+    scion,
+    scion_melta,
+    scion_plasma,
+    scion_plasma_oc,
+    scion_plasma_oc_inc_tempestor,
+    scion_troop_plasma,
+    scion_troop_melta,
+    scion_troop_plasma_no_pistol,
     hvy_wpn_team_lascannon,
     hvy_wpn_team_autocannon,
     armoured_sentinel_autocannon,
     taurox_autocannon,
     basilisk,
+    wyvern,
     manticore,
     leman_russ_bt,
     leman_russ_bt_lc,
@@ -137,11 +157,18 @@ ig_baneblade_list = [
 ]
 
 ig_filtered_models_list = [
-    guardsman,
+    #guardsman,
+    las_plas_inf_squad_oc,
+    scion_melta_inc_tempestor,
+    #scion_plasma,
+    #scion_plasma_oc,
+    scion_plasma_oc_inc_tempestor,
+    scion_troop_plasma,
+    scion_troop_plasma_no_pistol,
+    scion_troop_melta,
     hvy_wpn_team_lascannon,
     hvy_wpn_team_autocannon,
-    taurox_autocannon,
-    basilisk,
+    wyvern,
     manticore,
     leman_russ_bt_lc_mm,
     leman_russ_dem_lc_mm,
