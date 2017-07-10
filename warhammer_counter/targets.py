@@ -9,6 +9,9 @@ class Target:
         self.save_value = save
         self.wounds_value = wounds
 
+    def is_vehicle(self):
+        return False
+
     def invulnerable(self):
         return self.invulnerable_value
 
@@ -48,6 +51,9 @@ class Bike(Target):
 
 
 class Piranha(Target):
+    def is_vehicle(self):
+        return True
+
     def __init__(self):
         super().__init__(name='piranha', toughness=5, save=4, wounds=6, invulnerable=0)
 
@@ -58,20 +64,41 @@ class Harpy(Target):
 
 
 class Manticore(Target):
+
+    def is_vehicle(self):
+        return True
+
     def __init__(self):
         super().__init__(name='manticore', toughness=7, save=3, wounds=11, invulnerable=0)
 
+class Riptide(Target):
+
+    def __init__(self):
+        super().__init__(name='riptide', toughness=7, save=2, wounds=14, invulnerable=5)
+
 
 class Rhino(Target):
+
+    def is_vehicle(self):
+        return True
+
     def __init__(self):
         super().__init__(name='rhino', toughness=8, save=3, wounds=12, invulnerable=0)
 
 
 class LandRaider(Target):
+
+    def is_vehicle(self):
+        return True
+
     def __init__(self):
         super().__init__(name='land raider', toughness=8, save=2, wounds=16, invulnerable=0)
 
 class ImperialKnight(Target):
+
+    def is_vehicle(self):
+        return True
+
     def __init__(self):
         super().__init__(name='IKnight', toughness=8, save=3, wounds=24, invulnerable=5)
 
@@ -84,6 +111,7 @@ default_targets = [
         Piranha(),
         Harpy(),
         Manticore(),
+        Riptide(),
         Rhino(),
         LandRaider(),
         ImperialKnight()

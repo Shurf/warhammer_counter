@@ -5,6 +5,7 @@ import tau_models
 import ig_models
 import ik_models
 import gk_models
+import de_models
 
 class Distance:
     def __init__(self, range_value:int, overwatch=False):
@@ -16,8 +17,12 @@ max_color_value = 255
 
 def make_bgcolor_depending_on_average(ordered_values, value):
     filtered_values = [x for x in ordered_values if x > 0.0001]
-    min_value = min(filtered_values)
-    max_value = max(filtered_values)
+    if len(filtered_values) > 0:
+        min_value = min(filtered_values)
+        max_value = max(filtered_values)
+    else:
+        min_value = 0
+        max_value = 0
     average = (min_value + max_value) / 2
 
     if value < 0.0001:
@@ -123,7 +128,7 @@ def main():
     make_file(targets_list=targets_list, models=ig_models.ig_baneblade_list, distances=distances, file_name='baneblade.html')
     make_file(targets_list=targets_list, models=ig_models.ig_filtered_models_list + ik_models.ik_filtered_models_list + gk_models.gk_models_list, distances=distances, file_name='ig-gk-ik-filtered.html')
     make_file(targets_list=targets_list, models=ik_models.ik_filtered_models_list + gk_models.gk_models_list, distances=distances, file_name='gk-ik-filtered.html')
-
+    make_file(targets_list=targets_list, models=de_models.de_models_list, distances=distances, file_name='de.html')
 
 
 if __name__ == '__main__':
