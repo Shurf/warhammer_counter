@@ -2,6 +2,8 @@ __author__ = 'schrecknetuser'
 
 import targets
 import tau_models
+import ig_models
+import ik_models
 
 class Distance:
     def __init__(self, range_value:int, overwatch=False):
@@ -58,20 +60,9 @@ def make_bgcolor(ordered_values, value):
     return make_bgcolor_depending_on_average(ordered_values, value)
 
 
+def make_file(targets_list, models, distances, file_name):
 
-
-def main():
-
-    targets_list = targets.default_targets
-    models = tau_models.tau_models_list
-    for model in models:
-        model.ballistic = 6
-
-
-
-    distances = [Distance(1, True), Distance(8), Distance(12), Distance(15), Distance(20), Distance(30), Distance(36), Distance(72)]
-
-    with open('output.html', 'w') as f:
+    with open(file_name, 'w') as f:
         f.write('<html>')
         f.write('<body>')
 
@@ -112,6 +103,19 @@ def main():
             f.write('</table>')
         f.write('</body>')
         f.write('</html>')
+
+def main():
+
+    targets_list = targets.default_targets
+    distances = [Distance(1, True), Distance(8), Distance(12), Distance(15), Distance(20), Distance(30), Distance(36), Distance(72)]
+
+    make_file(targets_list=targets_list, models=tau_models.tau_models_list, distances=distances, file_name='tau.html')
+    make_file(targets_list=targets_list, models=ig_models.ig_models_list, distances=distances, file_name='ig.html')
+    make_file(targets_list=targets_list, models=ik_models.ik_models_list, distances=distances, file_name='ik.html')
+    make_file(targets_list=targets_list, models=ig_models.ig_leman_russ_list, distances=distances, file_name='leman russ.html')
+    make_file(targets_list=targets_list, models=ig_models.ig_baneblade_list, distances=distances, file_name='baneblade.html')
+    make_file(targets_list=targets_list, models=ig_models.ig_filtered_models_list + ik_models.ik_filtered_models_list, distances=distances, file_name='ig-ik-filtered.html')
+
 
 
 if __name__ == '__main__':
