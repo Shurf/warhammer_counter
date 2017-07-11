@@ -2,6 +2,9 @@ from model import *
 from ig_weapons import *
 
 guardsman = Model(name='guardsman', ballistic=4, weapons=[Lasgun()], base_cost=4)
+veterans_plasma_oc = Model(name='veterans plas oc', ballistic=3, weapons=[PlasmaPistolOC(), PlasmaGunOC(), PlasmaGunOC(), PlasmaGunOC(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lasgun()], base_cost=60)
+veterans_las_plas_oc = Model(name='veterans las plas oc', ballistic=3, weapons=[PlasmaPistolOC(), PlasmaGunOC(), PlasmaGunOC(), PlasmaGunOC(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lascannon()], base_cost=60)
+veterans_las_plas_oc_flamer = Model(name='veterans las plas oc h.flamer', ballistic=3, weapons=[PlasmaPistolOC(), PlasmaGunOC(), PlasmaGunOC(), PlasmaGunOC(), HeavyFlamer(), Lasgun(), Lasgun(), Lasgun(), Lascannon()], base_cost=60)
 las_plas_inf_squad_oc = Model(name='las plas inf squad (oc)', ballistic=4, weapons=[Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), PlasmaGunOC(), PlasmaPistolOC(), Lascannon()], base_cost=40)
 scion = Model(name='scion (hs lasgun)', ballistic=3, weapons=[HotshotLasgun()], base_cost=10)
 scion_melta = Model(name='scion (melta)', ballistic=3, weapons=[MeltaGun()], base_cost=10)
@@ -80,6 +83,9 @@ stormlord_sponsons = Model(name='stormlord sponsons', ballistic=4,
 ig_models_list = [
     guardsman,
     las_plas_inf_squad_oc,
+    veterans_plasma_oc,
+    veterans_las_plas_oc,
+    veterans_las_plas_oc_flamer,
     scion,
     scion_melta,
     scion_plasma,
@@ -159,6 +165,9 @@ ig_baneblade_list = [
 ig_filtered_models_list = [
     #guardsman,
     las_plas_inf_squad_oc,
+    veterans_plasma_oc,
+    veterans_las_plas_oc,
+    veterans_las_plas_oc_flamer,
     scion_melta_inc_tempestor,
     #scion_plasma,
     #scion_plasma_oc,
