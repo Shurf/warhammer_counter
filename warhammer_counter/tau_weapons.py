@@ -1,6 +1,6 @@
 __author__ = 'schrecknetuser'
 
-from weapon import *
+from .weapon import *
 
 class Sms(Weapon):
     def __init__(self):

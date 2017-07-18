@@ -1,6 +1,6 @@
 __author__ = 'schrecknetuser'
 import typing
-from targets import Target
+from .targets import Target
 
 class Profile:
     def __init__(self, min_range:int, max_range:int, strength: int, ap:int, shots:float, damage:float):
@@ -11,6 +11,7 @@ class Profile:
         self.shots = shots
         self.damage = damage
 
+dice_side_count = 6
 
 class Weapon:
 
@@ -19,6 +20,14 @@ class Weapon:
 
     def is_reroll_wound(self):
         return False
+
+    def hit_probability(self, ballistic_skill, overwatch:bool):
+        if self.is_autohit():
+            return 1.0
+        if overwatch:
+            return float(1)/6
+        return float(dice_side_count + 1 - ballistic_skill)/dice_side_count
+
 
     def wound_probability(self, range_value: int, target: Target):
         strength = self.strength(range_value)

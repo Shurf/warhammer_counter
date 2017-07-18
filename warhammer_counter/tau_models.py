@@ -1,7 +1,7 @@
 __author__ = 'schrecknetuser'
 
-from model import *
-from tau_weapons import *
+from .model import *
+from .tau_weapons import *
 
 class Broadside(Model):
     def __init__(self):

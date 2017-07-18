@@ -1,5 +1,5 @@
-from model import *
-from ik_weapons import *
+from .model import *
+from .ik_weapons import *
 
 errant = Model(name='Errant', ballistic=3, weapons=[ThermalCannon(), HeavyStubber()], base_cost=320)
 errant_ironstorm = Model(name='Errant ironstorm', ballistic=3, weapons=[ThermalCannon(), HeavyStubber(), IronstormMissilePod()], base_cost=320)

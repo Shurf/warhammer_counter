@@ -1,4 +1,4 @@
-from weapon import *
+from .weapon import *
 
 class HeavyPsycannon(Weapon):
     def __init__(self):

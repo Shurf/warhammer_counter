@@ -1,5 +1,5 @@
-from model import *
-from ig_weapons import *
+from .model import *
+from .ig_weapons import *
 
 guardsman = Model(name='guardsman', ballistic=4, weapons=[Lasgun()], base_cost=4)
 veterans_plasma_oc = Model(name='veterans plas oc', ballistic=3, weapons=[PlasmaPistolOC(), PlasmaGunOC(), PlasmaGunOC(), PlasmaGunOC(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lasgun(), Lasgun()], base_cost=60)

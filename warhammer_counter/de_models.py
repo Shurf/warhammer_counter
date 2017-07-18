@@ -1,5 +1,5 @@
-from model import *
-from de_weapons import *
+from .model import *
+from .de_weapons import *
 
 kabalite = Model(name='kabalite', ballistic=3, weapons=[SplinterRifle()], base_cost=7)
 kabalite_squad = Model(name='kabalite squad', ballistic=3, weapons=[SplinterRifle(), SplinterRifle(), SplinterRifle(), SplinterRifle(), Blaster()], base_cost=35)

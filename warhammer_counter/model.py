@@ -1,12 +1,11 @@
 __author__ = 'schrecknetuser'
 
 import typing
-from weapon import *
-from targets import *
-dice_side_count = 6
+from .weapon import *
+from .targets import *
 
 class Model:
-    def __init__(self, name:str, ballistic:int, weapons:typing.List[Weapon], base_cost:int):
+    def __init__(self, name:str, ballistic:float, weapons:typing.List[Weapon], base_cost:int):
         self.ballistic_value = ballistic
         self.name = name
         self.weapons = weapons
@@ -33,11 +32,8 @@ class Model:
         return float(total_save - 1)/dice_side_count
 
     def hit_probability(self, weapon, overwatch:bool):
-        if weapon.is_autohit():
-            return 1.0
-        if overwatch:
-            return float(1)/6
-        return float(dice_side_count + 1 - self.ballistic_value)/dice_side_count
+        return weapon.hit_probability(self.ballistic_value, overwatch)
+
 
     def divider(self):
         #return 1

@@ -1,4 +1,4 @@
-from weapon import *
+from .weapon import *
 
 class AvengerGatlingCannon(Weapon):
     def __init__(self):

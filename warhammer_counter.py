@@ -1,11 +1,12 @@
 __author__ = 'schrecknetuser'
 
-import targets
-import tau_models
-import ig_models
-import ik_models
-import gk_models
-import de_models
+import warhammer_counter.targets as targets
+import warhammer_counter.tau_models as tau_models
+import warhammer_counter.ig_models as ig_models
+import warhammer_counter.ik_models as ik_models
+import warhammer_counter.gk_models as gk_models
+import warhammer_counter.de_models as de_models
+import warhammer_counter.necron_models as necron_models
 
 class Distance:
     def __init__(self, range_value:int, overwatch=False):
@@ -119,7 +120,9 @@ def make_file(targets_list, models, distances, file_name):
 def main():
 
     targets_list = targets.default_targets
-    distances = [Distance(1, True), Distance(6), Distance(12), Distance(18), Distance(24), Distance(30), Distance(36), Distance(72)]
+    #distances = [Distance(1, True), Distance(6), Distance(12), Distance(18), Distance(24), Distance(30), Distance(36), Distance(72)]
+    distances = [Distance(6), Distance(12), Distance(18), Distance(24), Distance(30), Distance(36), Distance(72)]
+
 
     make_file(targets_list=targets_list, models=tau_models.tau_models_list, distances=distances, file_name='tau.html')
     make_file(targets_list=targets_list, models=ig_models.ig_models_list, distances=distances, file_name='ig.html')
@@ -129,6 +132,7 @@ def main():
     make_file(targets_list=targets_list, models=ig_models.ig_filtered_models_list + ik_models.ik_filtered_models_list + gk_models.gk_models_list, distances=distances, file_name='ig-gk-ik-filtered.html')
     make_file(targets_list=targets_list, models=ik_models.ik_filtered_models_list + gk_models.gk_models_list, distances=distances, file_name='gk-ik-filtered.html')
     make_file(targets_list=targets_list, models=de_models.de_models_list, distances=distances, file_name='de.html')
+    make_file(targets_list=targets_list, models=necron_models.necron_models_list, distances=distances, file_name='nec.html')
 
 
 if __name__ == '__main__':

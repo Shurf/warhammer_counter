@@ -1,4 +1,4 @@
-from weapon import *
+from .weapon import *
 
 class SplinterWeapon(Weapon):
     def __init__(self, name: str, point_cost: int, profiles: typing.List[Profile]):
