@@ -45,7 +45,7 @@ class Model:
         for weapon in self.weapons:
             wound_probability = self.damage_probability(weapon, range_value, target)
             unsaved_probability = self.unsaved_wound_probability(weapon.ap(range_value), target.save(), target.invulnerable())
-            expected_dmg = min(weapon.damage(range_value), target.wounds())
+            expected_dmg = min(weapon.damage(target, range_value), target.wounds())
             hit_probability = self.hit_probability(weapon, overwatch)
             result += wound_probability*unsaved_probability*expected_dmg*weapon.shots(range_value)*hit_probability
         return result

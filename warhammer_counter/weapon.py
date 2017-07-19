@@ -37,13 +37,13 @@ class Weapon:
             return 0
         if strength * 2 <= toughness:
             value = float(1) / 6
-        if strength < toughness:
+        elif strength < toughness:
             value = float(2) / 6
-        if strength == toughness:
+        elif strength == toughness:
             value = float(1) / 2
-        if strength >= toughness * 2:
+        elif strength >= toughness * 2:
             value = float(5) / 6
-        if strength > toughness:
+        elif strength > toughness:
             value = float(2) / 3
 
         if self.is_reroll_wound():
@@ -78,7 +78,7 @@ class Weapon:
             return 0
         return profile.shots
 
-    def damage(self, range_value:int) -> float:
+    def damage(self, target:Target, range_value:int) -> float:
         profile = self.profile(range_value)
         if profile is None:
             return 0

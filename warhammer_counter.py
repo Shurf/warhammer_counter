@@ -7,6 +7,7 @@ import warhammer_counter.ik_models as ik_models
 import warhammer_counter.gk_models as gk_models
 import warhammer_counter.de_models as de_models
 import warhammer_counter.necron_models as necron_models
+import warhammer_counter.marine_models as marine_models
 
 class Distance:
     def __init__(self, range_value:int, overwatch=False):
@@ -133,6 +134,7 @@ def main():
     make_file(targets_list=targets_list, models=ik_models.ik_filtered_models_list + gk_models.gk_models_list, distances=distances, file_name='gk-ik-filtered.html')
     make_file(targets_list=targets_list, models=de_models.de_models_list, distances=distances, file_name='de.html')
     make_file(targets_list=targets_list, models=necron_models.necron_models_list, distances=distances, file_name='nec.html')
+    make_file(targets_list=targets_list, models=marine_models.marine_models_list, distances=distances, file_name='sm.html')
 
 
 if __name__ == '__main__':
