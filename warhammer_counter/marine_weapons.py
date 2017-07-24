@@ -141,6 +141,13 @@ class Lascannon(Weapon):
                          [Profile(min_range=0, max_range=48, strength=9, shots=1, ap=3, damage=3.5)])
 
 
+class TwinLascannon(Weapon):
+    def __init__(self):
+        super().__init__('twin lascannon',
+                         50,
+                         [Profile(min_range=0, max_range=48, strength=9, shots=2, ap=3, damage=3.5)])
+
+
 class HeavyBolter(Weapon):
     def __init__(self):
         super().__init__('heavy bolter',
@@ -182,3 +189,9 @@ class TwinAutocannon(Weapon):
         super().__init__('Twin Autocannon',
                          33,
                          [Profile(min_range=0, max_range=48, strength=7, shots=4, ap=1, damage=2)])
+
+class PredatorAutocannon(Weapon):
+    def __init__(self):
+        super().__init__('Twin Autocannon',
+                         49,
+                         [Profile(min_range=0, max_range=48, strength=7, shots=4, ap=1, damage=3)])

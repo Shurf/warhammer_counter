@@ -31,6 +31,17 @@ sicaran_lascannons = Model(name='sicaran (bolters)', ballistic=3, weapons=[TwinA
 razorback_assault = Model(name='Razorback/AC', ballistic=3, weapons=[TwinAssaultCannon()], base_cost=65)
 
 dreadnought_auto = Model(name='Dreadnought/Autocannon', ballistic=3, weapons=[TwinAutocannon(), TwinAutocannon()], base_cost=70)
+dreadnought_auto_las = Model(name='Dreadnought/Autocannon_Las', ballistic=3, weapons=[TwinAutocannon(), TwinLascannon()], base_cost=70)
+mortis_las = Model(name='Mortis/Lascannon', ballistic=3, weapons=[TwinLascannon(), TwinLascannon()], base_cost=75)
+
+predator_auto = Model(name='Predator/Autocannon', ballistic=3, weapons=[PredatorAutocannon()], base_cost=102)
+predator_auto_bolters = Model(name='Predator/Autocannon+bolters', ballistic=3, weapons=[PredatorAutocannon(), HeavyBolter(), HeavyBolter()], base_cost=102)
+predator_auto_lascannons = Model(name='Predator/Autocannon+las', ballistic=3, weapons=[PredatorAutocannon(), Lascannon(), Lascannon()], base_cost=102)
+
+predator_las = Model(name='Predator/Lascannon', ballistic=3, weapons=[TwinLascannon()], base_cost=102)
+predator_las_bolters = Model(name='Predator/Lascannon+bolters', ballistic=3, weapons=[TwinLascannon(), HeavyBolter(), HeavyBolter()], base_cost=102)
+predator_las_lascannons = Model(name='Predator/Lascannon+las', ballistic=3, weapons=[TwinLascannon(), Lascannon(), Lascannon()], base_cost=102)
+
 
 marine_models_list = [
     marine,
@@ -52,5 +63,13 @@ marine_models_list = [
     sicaran_bolters,
     sicaran_lascannons,
     razorback_assault,
-    dreadnought_auto
+    dreadnought_auto,
+    dreadnought_auto_las,
+    mortis_las,
+    predator_auto,
+    predator_auto_bolters,
+    predator_auto_lascannons,
+    predator_las,
+    predator_las_bolters,
+    predator_las_lascannons
 ]
