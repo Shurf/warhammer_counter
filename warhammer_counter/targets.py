@@ -83,7 +83,7 @@ class Rhino(Target):
         return True
 
     def __init__(self):
-        super().__init__(name='rhino', toughness=8, save=3, wounds=12, invulnerable=0)
+        super().__init__(name='rhino', toughness=7, save=3, wounds=12, invulnerable=0)
 
 
 class LandRaider(Target):

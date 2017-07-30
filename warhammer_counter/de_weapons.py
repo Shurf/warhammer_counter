@@ -99,3 +99,24 @@ class Shardcarbine(SplinterWeapon):
         super().__init__('shardcarbine',
                          0,
                          [Profile(min_range=0, max_range=18, strength=1, shots=3, ap=0, damage=1)])
+
+
+class HeavyWraithCannon(Weapon):
+    def __init__(self):
+        super().__init__('Heavy Wraithcannon',
+                         50,
+                         [Profile(min_range=0, max_range=36, strength=10, shots=2, ap=4, damage=3.5)])
+
+
+class ScatterLaser(Weapon):
+    def __init__(self):
+        super().__init__('Scatter Laser',
+                         15,
+                         [Profile(min_range=0, max_range=36, strength=6, shots=4, ap=0, damage=1)])
+
+
+class Suncannon(Weapon):
+    def __init__(self):
+        super().__init__('Suncannon',
+                         138,
+                         [Profile(min_range=0, max_range=48, strength=6, shots=7, ap=3, damage=2)])

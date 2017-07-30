@@ -98,6 +98,18 @@ class BoltRifle(Weapon):
                          [Profile(min_range=0, max_range=15, strength=4, shots=2, ap=1, damage=1),
                           Profile(min_range=12, max_range=30, strength=4, shots=1, ap=1, damage=1)])
 
+class AutoBoltRifle(Weapon):
+    def __init__(self):
+        super().__init__('auto bolt rifle',
+                         1,
+                         [Profile(min_range=0, max_range=24, strength=4, shots=2, ap=0, damage=1)])
+
+class StalkerBoltRifle(Weapon):
+    def __init__(self):
+        super().__init__('stalker bolt rifle',
+                         2,
+                         [Profile(min_range=0, max_range=36, strength=4, shots=1, ap=2, damage=1)])
+
 
 class PlasmaTalon(Weapon):
     def __init__(self):
@@ -182,3 +194,9 @@ class TwinAutocannon(Weapon):
         super().__init__('Twin Autocannon',
                          33,
                          [Profile(min_range=0, max_range=48, strength=7, shots=4, ap=1, damage=2)])
+
+class PredatorAutocannon(Weapon):
+    def __init__(self):
+        super().__init__('Predator autocannon',
+                         49,
+                         [Profile(min_range=0, max_range=48, strength=7, shots=4, ap=1, damage=3)])
