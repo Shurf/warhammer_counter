@@ -66,7 +66,7 @@ class NecrotoxinMissile(Weapon):
     def __init__(self):
         super().__init__('Necrotoxin missile',
                          0,
-                         [Profile(min_range=0, max_range=48, strength=1, shots=6, ap=0, damage=1)])
+                         [Profile(min_range=0, max_range=48, strength=1, shots=3.5, ap=0, damage=1)])
 
 class ShatterfieldMissile(Weapon):
 
