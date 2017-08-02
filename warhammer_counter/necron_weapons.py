@@ -58,6 +58,29 @@ class GaussCannon(Weapon):
                          [Profile(min_range=0, max_range=24, strength=5, shots=2, ap=3, damage=2)])
 
 
+class HeavyGaussCannon(Weapon):
+
+    def __init__(self):
+        super().__init__('heavy gauss cannon',
+                         32,
+                         [Profile(min_range=0, max_range=36, strength=9, shots=1, ap=4, damage=3.5)])
+
+class TwinHeavyGaussCannon(Weapon):
+
+    def __init__(self):
+        super().__init__('twin heavy gauss cannon',
+                         64,
+                         [Profile(min_range=0, max_range=36, strength=9, shots=2, ap=4, damage=3.5)])
+
+
+class ParticleShredder(Weapon):
+
+    def __init__(self):
+        super().__init__('particle shredder',
+                         41,
+                         [Profile(min_range=0, max_range=24, strength=7, shots=6, ap=1, damage=2)])
+
+
 class GaussFluxArc(Weapon):
 
     def __init__(self):

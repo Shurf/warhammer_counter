@@ -14,6 +14,11 @@ immortal_gauss = Model(name='Immortal/Gauss', ballistic=3, weapons=[GaussBlaster
 immortal_tesla = Model(name='Immortal/Tesla', ballistic=3, weapons=[TeslaCarbine()], base_cost=8)
 tesseract_vault = Model(name='Tesseract Vault', ballistic=3, weapons=[TeslaSphere(), TeslaSphere(), TeslaSphere(), TeslaSphere()], base_cost=496)
 
+stalker_gauss = Model(name='Stalker/Gauss', ballistic=3, weapons=[TwinHeavyGaussCannon()], base_cost=117)
+stalker_particle = Model(name='Stalker/particle', ballistic=3, weapons=[ParticleShredder()], base_cost=117)
+
+heavy_destroyer = Model(name='Heavy destroyer', ballistic=2.33, weapons=[HeavyGaussCannon()], base_cost=43)
+
 necron_models_list = [
     warrior,
     immortal_gauss,
@@ -24,6 +29,9 @@ necron_models_list = [
     destroyer,
     annihilation_barge_gauss,
     annihilation_barge_tesla,
+    stalker_gauss,
+    stalker_particle,
+    heavy_destroyer,
     night_scythe,
     doom_scythe,
     tesseract_vault
