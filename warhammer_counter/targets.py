@@ -110,7 +110,6 @@ default_targets = [
         Bike(),
         Piranha(),
         Harpy(),
-        Manticore(),
         Riptide(),
         Rhino(),
         LandRaider(),
